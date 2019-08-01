@@ -434,7 +434,8 @@ body {
           display: flex;
           flex-wrap: nowrap;
           font-weight: 400;
-          line-height: 1.75; }
+          line-height: 1.75;
+          margin-right: 50px; }
           .section-expertise-right-wrapper__row-col-num {
             width: 30px;
             color: #e0a80d; }
@@ -484,7 +485,8 @@ body {
         display: flex;
         flex-direction: row; }
         .section-skills-right-wrapper .wrapper-progressbar-col {
-          width: 50%; }
+          width: 50%;
+          margin-right: 50px; }
           .section-skills-right-wrapper .wrapper-progressbar-col-background {
             height: 5px;
             background-color: #404242; }
