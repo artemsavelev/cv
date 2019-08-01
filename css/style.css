@@ -410,7 +410,7 @@ body {
     width: 36.5%;
     background-color: #2b2c2c;
     position: relative; }
-    .section-expertise-left-inner {
+    .section-expertise-left-wrapper {
       position: absolute;
       right: 70px;
       top: 60px;
@@ -421,26 +421,26 @@ body {
   .section-expertise-right {
     width: 63.5%;
     background-color: #2d2e2e; }
-    .section-expertise-right-outer {
+    .section-expertise-right-wrapper {
       width: 60%;
       font-size: 10pt;
       padding: 60px 70px 60px 70px; }
-      .section-expertise-right-outer-row1, .section-expertise-right-outer-row2 {
+      .section-expertise-right-wrapper-row1, .section-expertise-right-wrapper-row2 {
         padding-bottom: 40px; }
-      .section-expertise-right-outer-row1, .section-expertise-right-outer-row2, .section-expertise-right-outer-row3 {
+      .section-expertise-right-wrapper-row1, .section-expertise-right-wrapper-row2, .section-expertise-right-wrapper-row3 {
         height: auto;
         display: flex;
         flex-direction: row; }
-        .section-expertise-right-outer-row1-col1, .section-expertise-right-outer-row2-col1, .section-expertise-right-outer-row3-col1 {
+        .section-expertise-right-wrapper-row1-col1, .section-expertise-right-wrapper-row2-col1, .section-expertise-right-wrapper-row3-col1 {
           padding-right: 100px; }
-        .section-expertise-right-outer-row1-col1, .section-expertise-right-outer-row1-col2, .section-expertise-right-outer-row2-col1, .section-expertise-right-outer-row2-col2, .section-expertise-right-outer-row3-col1, .section-expertise-right-outer-row3-col2 {
+        .section-expertise-right-wrapper-row1-col1, .section-expertise-right-wrapper-row1-col2, .section-expertise-right-wrapper-row2-col1, .section-expertise-right-wrapper-row2-col2, .section-expertise-right-wrapper-row3-col1, .section-expertise-right-wrapper-row3-col2 {
           width: 60%;
           display: flex;
           flex-wrap: nowrap;
           font-weight: 400;
           line-height: 1.75; }
-          .section-expertise-right-outer-row1-col1__num, .section-expertise-right-outer-row1-col2__num, .section-expertise-right-outer-row2-col1__num, .section-expertise-right-outer-row2-col2__num, .section-expertise-right-outer-row3-col1__num, .section-expertise-right-outer-row3-col2__num {
+          .section-expertise-right-wrapper-row1-col1__num, .section-expertise-right-wrapper-row1-col2__num, .section-expertise-right-wrapper-row2-col1__num, .section-expertise-right-wrapper-row2-col2__num, .section-expertise-right-wrapper-row3-col1__num, .section-expertise-right-wrapper-row3-col2__num {
             width: 30px;
             color: #e0a80d; }
-          .section-expertise-right-outer-row1-col1__content, .section-expertise-right-outer-row1-col2__content, .section-expertise-right-outer-row2-col1__content, .section-expertise-right-outer-row2-col2__content, .section-expertise-right-outer-row3-col1__content, .section-expertise-right-outer-row3-col2__content {
+          .section-expertise-right-wrapper-row1-col1__content, .section-expertise-right-wrapper-row1-col2__content, .section-expertise-right-wrapper-row2-col1__content, .section-expertise-right-wrapper-row2-col2__content, .section-expertise-right-wrapper-row3-col1__content, .section-expertise-right-wrapper-row3-col2__content {
             width: 90%; }
