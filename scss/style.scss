@@ -9,14 +9,11 @@ body {
 }
 
 
-
 // === header ===
 
 .section-header {
     display: flex;
     flex-direction: row;
-
-
 
     &-left {
         background-color: rgb(43, 44, 44);
@@ -46,8 +43,6 @@ body {
     }
 
     &-right {
-        
-
         background-color: rgb(45, 46, 46);
         width: 63.5%;
         line-height: 0.91;
@@ -55,11 +50,8 @@ body {
 
 
         &__name {
-
             margin-top: 37vh;
             margin-left: 70px;
-            
-
             width: 60%; 
             font-size: 61px;            
             font-weight: 300;
@@ -67,9 +59,7 @@ body {
         }
 
         &__lastname {
-
             margin-left: 70px;
-
             width: 60%;
             font-size: 67px;
             font-style: normal;
@@ -80,9 +70,7 @@ body {
         }
 
         &__position {
-
             margin-left: 70px;
-
             margin-top: 30px;
             width: 60%;
             font-weight: 300;
@@ -93,8 +81,7 @@ body {
             margin-top: 33vh;
             margin-left: 70px;
             margin-bottom: 70px;
-            font-size: 10pt; 
-
+            font-size: 10pt;
             width: 60%;
             display: flex;
             flex-direction: row;
@@ -175,12 +162,9 @@ body {
 
         &-wrapper {
             width: 60%;
-
             line-height: 1.75;
             padding: 70px;
             
-
-
         }
     }
 }
@@ -194,10 +178,8 @@ body {
 
     &-left {
         width: 36.5%;
-        background-color: rgb(43, 44, 44);
-        
+        background-color: rgb(43, 44, 44);        
         position: relative;
-
 
         &-wrapper {
             position: absolute;
@@ -220,33 +202,24 @@ body {
             font-size: 10pt;            
             padding: 60px 70px 60px 70px;
 
-            &-row1, &-row2{
-                padding-bottom: 40px; 
-            }
-
-            &-row1, &-row2, &-row3{ 
+            &__row { 
                 height: auto;
                 display: flex;
                 flex-direction: row;
 
-
-                &-col1 {
-                    padding-right: 100px;
-                }
-
-                &-col1, &-col2 {
+                &-col {
                     width: 60%;
                     display: flex;
                     flex-wrap: nowrap;
                     font-weight: 400;
                     line-height: 1.75;
 
-                    &__num {
+                    &-num {
                         width: 30px;
                         color: rgb(224, 168, 13);
                     }
 
-                    &__content {
+                    &-content {
                         width: 90%;
 
                     }
@@ -256,3 +229,92 @@ body {
     }
 }
 // === / expertise  ===
+
+// === skills ===
+.section-skills {
+    display: flex;
+    flex-direction: row;
+    color: rgb(164, 165, 166);
+
+    &-left {
+        width: 36.5%;
+        background-color: rgb(41, 42, 42);        
+        position: relative;
+
+        &-wrapper {
+            position: absolute;
+            right: 70px;
+            top: 60px;
+            text-align: right;
+            font-weight: 400;
+            font-size: 10pt;
+            line-height: 1.75;
+        }
+        
+    }
+
+    &-right {
+        width: 63.5%;
+        background-color: rgb(43, 44, 44);
+
+        &-wrapper {
+            width: 60%;
+            font-size: 10pt;            
+            padding: 60px 70px 60px 70px;
+
+            &__row {
+                height: auto;
+                display: flex;
+                flex-direction: row;
+                //border: 1px solid white;
+
+                &-col {
+                    width: 60%;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    font-weight: 400;
+                    line-height: 1.75;                    
+
+                    &-num {
+                        width: 40px;
+                        color: rgb(224, 168, 13);
+                    }
+
+                    &-content {
+                        width: 90%;
+                        
+                    }
+                }
+            }
+
+            .wrapper-progressbar {
+                height: 5px;
+                //border: 1px solid white;
+                display: flex;
+                flex-direction: row;
+
+                &-col {
+
+                    width: 50%;
+
+                    &-background {
+                        height: 5px;
+                        background-color: rgb(64, 66, 66);
+            
+                        &-progress {
+                            height: 5px;
+                            width: 80%;
+                            background-color: rgb(224, 168, 13);
+                        }
+                        
+                    }
+
+                }
+
+
+
+            }
+        }
+    }
+}
+// === / skills  ===
