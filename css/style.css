@@ -534,10 +534,11 @@ body {
 
 .section-experience {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  color: #a4a5a6; }
   .section-experience-left {
     width: 36.5%;
-    background-color: #292a2a;
+    background-color: #2b2c2c;
     position: relative; }
     .section-experience-left-wrapper {
       position: absolute;
@@ -552,14 +553,12 @@ body {
         font-weight: 400;
         font-size: 10pt; }
   .section-experience-right {
-    height: auto;
     width: 63.5%;
-    background-color: #2b2c2c; }
+    background-color: #2d2e2e; }
     .section-experience-right-wrapper {
       width: 100%;
-      padding: 70px 0 70px 70px; }
+      padding: 70px 0 0 70px; }
       .section-experience-right-wrapper-row {
-        height: auto;
         width: 80%;
         display: flex;
         flex-direction: row; }
@@ -568,13 +567,17 @@ body {
           width: 10px;
           display: flex;
           flex-direction: column; }
-          .section-experience-right-wrapper-row-col__point {
-            height: 10px;
-            width: 10px;
-            background-color: #e0a80d;
-            border-radius: 14px; }
+          .section-experience-right-wrapper-row-col__wrapper-point {
+            width: 10px; }
+            .section-experience-right-wrapper-row-col__wrapper-point-point {
+              margin-top: 6px;
+              margin-bottom: 6px;
+              height: 10px;
+              width: 10px;
+              background-color: #e0a80d;
+              border-radius: 50%; }
           .section-experience-right-wrapper-row-col__timeline {
-            height: 100%;
+            height: 150%;
             width: 0;
             margin-left: 4px;
             border: 1px solid #404242; }
