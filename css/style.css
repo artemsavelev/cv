@@ -563,7 +563,7 @@ body {
         display: flex;
         flex-direction: row; }
         .section-experience-right-wrapper-row-col {
-          height: 100px;
+          height: 150px;
           width: 10px;
           display: flex;
           flex-direction: column; }
