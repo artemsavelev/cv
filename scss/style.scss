@@ -30,16 +30,13 @@ body {
             &-foto {
                 width: 251px;
                 height: 251px;
-                border-radius: 150px;
-                
+                border-radius: 50%;                
 
-                .foto { 
+                .foto {
                     border-radius: 150px;
                 }
-
             }
         }
-        
     }
 
     &-right {
@@ -47,8 +44,7 @@ body {
         width: 63.5%;
         line-height: 0.91;
         color: rgb(164, 165, 166);
-
-
+ 
         &__name {
             margin-top: 37vh;
             margin-left: 70px;
@@ -89,7 +85,7 @@ body {
             
 
             .a{
-                color: rgb(164, 165, 166);
+                color: rgb(151, 152, 153);
                 text-decoration: none;
             }
             
@@ -98,25 +94,36 @@ body {
                 text-decoration: none;
             }
 
-
             &-location {
                 width: 25%;
-                font-weight: 300; 
+                font-weight: 300;
+                p {
+                    color: rgb(151, 152, 153);
+                }
             }
 
             &-phone {
                 width: 25%;
                 font-weight: 300;
+                p {
+                    color: rgb(151, 152, 153);
+                }
             }
 
             &-web {
                 width: 25%;
                 font-weight: 300;
+                p {
+                    color: rgb(151, 152, 153);
+                }
             }
 
             &-email {
                 width: 25%;
-                font-weight: 300;                
+                font-weight: 300;
+                p {
+                    color: rgb(151, 152, 153);
+                }
             }
 
         }
@@ -163,9 +170,11 @@ body {
         background-color: rgb(43, 44, 44);
 
         &-wrapper {
+            padding: 70px;
             width: 60%;
             line-height: 1.75;
-            padding: 70px;            
+            color: rgb(151, 152, 153);
+
         }
     }
 }
@@ -205,32 +214,47 @@ body {
         width: 63.5%;
         background-color: rgb(45, 46, 46);
 
+
         &-wrapper {
             width: 60%;
-            font-size: 10pt;            
-            padding: 60px 70px 60px 70px;
+            font-size: 10pt;
+            padding-top: 70px;
+            padding-bottom: 30px;
+            padding-left: 70px;
+            padding-right: 70px;
 
-            &__row { 
-                height: auto;
+            &__heading {
+                font-size: 13pt;
+                font-weight: 700;
+            }
+
+            &__row {
+                width: 100%;
                 display: flex;
                 flex-direction: row;
+                margin-bottom: 40px;
 
                 &-col {
-                    width: 60%;
+                    width: 100%;
                     display: flex;
-                    flex-wrap: nowrap;
+                    flex-direction: row;
                     font-weight: 400;
                     line-height: 1.75;
                     margin-right: 50px;
 
+
                     &-num {
                         width: 30px;
                         color: rgb(224, 168, 13);
+
                     }
 
                     &-content {
-                        width: 90%;
-
+                        width: 100%;
+                        p {
+                            color: rgb(151, 152, 153);
+                        }
+                        
                     }
                 }
             }
@@ -276,21 +300,20 @@ body {
         &-wrapper {
             width: 60%;
             font-size: 10pt;            
-            padding: 70px 0 20px 70px;
-            //border: 1px solid white;
+            padding: 70px 70px 20px 70px;
 
             &__row {
                 height: auto;
                 display: flex;
                 flex-direction: row;
-                //border: 1px solid white;
                 
                 &-col {
-                    width: 60%;
+                    width: 50%;
                     display: flex;
                     flex-direction: row;
                     font-weight: 400;
                     line-height: 0.6;
+
                      
                     &-num {
                         font-size: 13pt;
@@ -298,25 +321,27 @@ body {
                         margin-bottom: 15px;
                         width: 40px;
                         color: rgb(224, 168, 13);
+
                     }
 
                     &-content {
                         font-size: 13pt;
                         font-weight: 700;
-                        width: 90%;                      
+
+                   
                     }
                 }
             }
 
             .wrapper-progressbar {
-                margin: 0 0 50px 0;
+                margin-bottom: 50px;
                 display: flex;
                 flex-direction: row;
-                //border: 1px solid white;
 
                 &-col {
                     width: 50%;
                     margin-right: 50px;
+
 
                     &-background {
                         height: 5px;
@@ -379,7 +404,7 @@ body {
         &-wrapper {
             position: absolute;
             right: 70px;
-            top: 60px;
+            top: 70px;
             text-align: right;       
             line-height: 1.75;
 
@@ -402,25 +427,21 @@ body {
         background-color: rgb(45, 46, 46);
 
         &-wrapper {
-            width: 100%;    
-            padding: 70px 0 0 70px; 
+            width: 60%;
+            padding: 70px 70px 0 70px;
     
-            &-row {
-                width: 80%;
+            .row {
                 display: flex;
                 flex-direction: row;
     
-                &-col {
-                    height: 150px;
-                    width: 10px;
+                .col {
                     display: flex;
                     flex-direction: column;
 
-                    &__wrapper-point{
+                    &-wrapper{
                         width: 10px;
-
-
-                        &-point {
+ 
+                        &__point {
                             margin-top: 6px;
                             margin-bottom: 6px;                         
                             height: 10px;
@@ -431,11 +452,50 @@ body {
                     }
     
                     &__timeline {
-                        height: 150%;
+                        height: 100%;
                         width: 0;
                         margin-left: 4px;
                         border: 1px solid #404242;
-    
+                    }
+
+                    &__timeline-empty {
+                        height: 70px;
+                        margin-left: 4px;
+                        border: 1px solid #404242;
+                    }
+
+                    &__title {
+                        width: 47%;
+                        margin-left: 18px;
+                        line-height: 1.75;
+
+
+                        &-year {
+                            font-size: 8pt;
+                            margin-top: 2px;
+                            color: #6d6e6e;
+                        }
+                        
+                        &-company {
+                            font-weight: 700;
+                            font-size: 13pt;
+                        }
+
+                        &-position {
+                            font-size: 8pt;
+                        }
+
+                        &-location {
+                            font-size: 8pt;
+                            color: #6d6e6e;
+                        }
+                    }
+
+                    &__description {
+                        width: 50%;
+                        line-height: 1.75;
+                        font-size: 10pt;
+                        color: rgb(151, 152, 153);
                     }
                 }
             }
@@ -443,3 +503,130 @@ body {
     }
 }
 // === / experience  ===
+
+
+// ===  education  ===
+.section-education {
+    display: flex;
+    flex-direction: row;
+    color: rgb(164, 165, 166);
+
+    &-left {
+        width: 36.5%;
+        background-color: rgb(41, 42, 42);
+        position: relative;
+
+        &-wrapper {
+            position: absolute;
+            right: 70px;
+            top: 70px;
+            text-align: right;       
+            line-height: 1.75;
+
+            &__heading {
+                font-weight: 700;
+                font-size: 13pt;
+            }
+
+            &__comment {
+                font-weight: 400;
+                font-size: 10pt;
+            }
+        }
+
+    }
+
+
+    &-right {
+        width: 63.5%;
+        background-color: rgb(43, 44, 44);
+
+        &-wrapper {
+            width: 60%;
+            padding: 0 70px 0 70px;
+    
+            .row {
+                display: flex;
+                flex-direction: row;
+    
+                .col {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-wrapper{
+                        width: 10px;
+ 
+                        &__point {
+                            margin-top: 6px;
+                            margin-bottom: 6px;                         
+                            height: 10px;
+                            width: 10px;
+                            background-color: rgb(224, 168, 13);
+                            border-radius: 50%;
+                        }
+                    }
+    
+                    &__timeline {
+                        height: 100%;
+                        width: 0;
+                        margin-left: 4px;
+                        border: 1px solid #404242;
+                    }
+
+                    &__timeline-empty {
+                        height: 70px;
+                        margin-left: 4px;
+                        border: 1px solid #404242;
+                    }
+
+                    &__timeline-empty-end {
+                        height: 70px;
+                        margin-left: -5px;
+                        width: 20px;
+                        border-top: 2px solid #404242;                        
+                    }
+
+                    &__title {
+                        width: 47%;
+                        margin-left: 18px;
+                        line-height: 1.75;
+
+
+                        &-year {
+                            font-size: 8pt;
+                            margin-top: 2px;
+                            color: #6d6e6e;
+                        }
+                        
+                        &-company {
+                            font-weight: 700;
+                            font-size: 13pt;
+                        }
+
+                        &-position {
+                            font-size: 8pt;
+                        }
+
+                        &-location {
+                            font-size: 8pt;
+                            color: #6d6e6e;
+                        }
+                    }
+
+                    &__description {
+                        width: 50%;
+                        line-height: 1.75;
+                        font-size: 10pt;
+                        color: rgb(151, 152, 153);
+                    }
+                }
+            }
+        }     
+    }
+}
+// === / education  ===
+
+
+
+
+  

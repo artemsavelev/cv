@@ -321,7 +321,7 @@ body {
       .section-header-left__wrapper-foto {
         width: 251px;
         height: 251px;
-        border-radius: 150px; }
+        border-radius: 50%; }
         .section-header-left__wrapper-foto .foto {
           border-radius: 150px; }
   .section-header-right {
@@ -360,7 +360,7 @@ body {
       flex-direction: row;
       border-top: 1px solid #404242; }
       .section-header-right__contact .a {
-        color: #a4a5a6;
+        color: #979899;
         text-decoration: none; }
       .section-header-right__contact .a:hover {
         color: #e0a80d;
@@ -368,15 +368,23 @@ body {
       .section-header-right__contact-location {
         width: 25%;
         font-weight: 300; }
+        .section-header-right__contact-location p {
+          color: #979899; }
       .section-header-right__contact-phone {
         width: 25%;
         font-weight: 300; }
+        .section-header-right__contact-phone p {
+          color: #979899; }
       .section-header-right__contact-web {
         width: 25%;
         font-weight: 300; }
+        .section-header-right__contact-web p {
+          color: #979899; }
       .section-header-right__contact-email {
         width: 25%;
         font-weight: 300; }
+        .section-header-right__contact-email p {
+          color: #979899; }
 
 .section-intro {
   display: flex;
@@ -402,9 +410,10 @@ body {
     width: 63.5%;
     background-color: #2b2c2c; }
     .section-intro-right-wrapper {
+      padding: 70px;
       width: 60%;
       line-height: 1.75;
-      padding: 70px; }
+      color: #979899; }
 
 .section-expertise {
   display: flex;
@@ -432,15 +441,22 @@ body {
     .section-expertise-right-wrapper {
       width: 60%;
       font-size: 10pt;
-      padding: 60px 70px 60px 70px; }
+      padding-top: 70px;
+      padding-bottom: 30px;
+      padding-left: 70px;
+      padding-right: 70px; }
+      .section-expertise-right-wrapper__heading {
+        font-size: 13pt;
+        font-weight: 700; }
       .section-expertise-right-wrapper__row {
-        height: auto;
+        width: 100%;
         display: flex;
-        flex-direction: row; }
+        flex-direction: row;
+        margin-bottom: 40px; }
         .section-expertise-right-wrapper__row-col {
-          width: 60%;
+          width: 100%;
           display: flex;
-          flex-wrap: nowrap;
+          flex-direction: row;
           font-weight: 400;
           line-height: 1.75;
           margin-right: 50px; }
@@ -448,7 +464,9 @@ body {
             width: 30px;
             color: #e0a80d; }
           .section-expertise-right-wrapper__row-col-content {
-            width: 90%; }
+            width: 100%; }
+            .section-expertise-right-wrapper__row-col-content p {
+              color: #979899; }
 
 .section-skills {
   display: flex;
@@ -476,13 +494,13 @@ body {
     .section-skills-right-wrapper {
       width: 60%;
       font-size: 10pt;
-      padding: 70px 0 20px 70px; }
+      padding: 70px 70px 20px 70px; }
       .section-skills-right-wrapper__row {
         height: auto;
         display: flex;
         flex-direction: row; }
         .section-skills-right-wrapper__row-col {
-          width: 60%;
+          width: 50%;
           display: flex;
           flex-direction: row;
           font-weight: 400;
@@ -495,10 +513,9 @@ body {
             color: #e0a80d; }
           .section-skills-right-wrapper__row-col-content {
             font-size: 13pt;
-            font-weight: 700;
-            width: 90%; }
+            font-weight: 700; }
       .section-skills-right-wrapper .wrapper-progressbar {
-        margin: 0 0 50px 0;
+        margin-bottom: 50px;
         display: flex;
         flex-direction: row; }
         .section-skills-right-wrapper .wrapper-progressbar-col {
@@ -543,7 +560,7 @@ body {
     .section-experience-left-wrapper {
       position: absolute;
       right: 70px;
-      top: 60px;
+      top: 70px;
       text-align: right;
       line-height: 1.75; }
       .section-experience-left-wrapper__heading {
@@ -556,28 +573,127 @@ body {
     width: 63.5%;
     background-color: #2d2e2e; }
     .section-experience-right-wrapper {
-      width: 100%;
-      padding: 70px 0 0 70px; }
-      .section-experience-right-wrapper-row {
-        width: 80%;
+      width: 60%;
+      padding: 70px 70px 0 70px; }
+      .section-experience-right-wrapper .row {
         display: flex;
         flex-direction: row; }
-        .section-experience-right-wrapper-row-col {
-          height: 150px;
-          width: 10px;
+        .section-experience-right-wrapper .row .col {
           display: flex;
           flex-direction: column; }
-          .section-experience-right-wrapper-row-col__wrapper-point {
+          .section-experience-right-wrapper .row .col-wrapper {
             width: 10px; }
-            .section-experience-right-wrapper-row-col__wrapper-point-point {
+            .section-experience-right-wrapper .row .col-wrapper__point {
               margin-top: 6px;
               margin-bottom: 6px;
               height: 10px;
               width: 10px;
               background-color: #e0a80d;
               border-radius: 50%; }
-          .section-experience-right-wrapper-row-col__timeline {
-            height: 150%;
+          .section-experience-right-wrapper .row .col__timeline {
+            height: 100%;
             width: 0;
             margin-left: 4px;
             border: 1px solid #404242; }
+          .section-experience-right-wrapper .row .col__timeline-empty {
+            height: 70px;
+            margin-left: 4px;
+            border: 1px solid #404242; }
+          .section-experience-right-wrapper .row .col__title {
+            width: 47%;
+            margin-left: 18px;
+            line-height: 1.75; }
+            .section-experience-right-wrapper .row .col__title-year {
+              font-size: 8pt;
+              margin-top: 2px;
+              color: #6d6e6e; }
+            .section-experience-right-wrapper .row .col__title-company {
+              font-weight: 700;
+              font-size: 13pt; }
+            .section-experience-right-wrapper .row .col__title-position {
+              font-size: 8pt; }
+            .section-experience-right-wrapper .row .col__title-location {
+              font-size: 8pt;
+              color: #6d6e6e; }
+          .section-experience-right-wrapper .row .col__description {
+            width: 50%;
+            line-height: 1.75;
+            font-size: 10pt;
+            color: #979899; }
+
+.section-education {
+  display: flex;
+  flex-direction: row;
+  color: #a4a5a6; }
+  .section-education-left {
+    width: 36.5%;
+    background-color: #292a2a;
+    position: relative; }
+    .section-education-left-wrapper {
+      position: absolute;
+      right: 70px;
+      top: 70px;
+      text-align: right;
+      line-height: 1.75; }
+      .section-education-left-wrapper__heading {
+        font-weight: 700;
+        font-size: 13pt; }
+      .section-education-left-wrapper__comment {
+        font-weight: 400;
+        font-size: 10pt; }
+  .section-education-right {
+    width: 63.5%;
+    background-color: #2b2c2c; }
+    .section-education-right-wrapper {
+      width: 60%;
+      padding: 0 70px 0 70px; }
+      .section-education-right-wrapper .row {
+        display: flex;
+        flex-direction: row; }
+        .section-education-right-wrapper .row .col {
+          display: flex;
+          flex-direction: column; }
+          .section-education-right-wrapper .row .col-wrapper {
+            width: 10px; }
+            .section-education-right-wrapper .row .col-wrapper__point {
+              margin-top: 6px;
+              margin-bottom: 6px;
+              height: 10px;
+              width: 10px;
+              background-color: #e0a80d;
+              border-radius: 50%; }
+          .section-education-right-wrapper .row .col__timeline {
+            height: 100%;
+            width: 0;
+            margin-left: 4px;
+            border: 1px solid #404242; }
+          .section-education-right-wrapper .row .col__timeline-empty {
+            height: 70px;
+            margin-left: 4px;
+            border: 1px solid #404242; }
+          .section-education-right-wrapper .row .col__timeline-empty-end {
+            height: 70px;
+            margin-left: -5px;
+            width: 20px;
+            border-top: 2px solid #404242; }
+          .section-education-right-wrapper .row .col__title {
+            width: 47%;
+            margin-left: 18px;
+            line-height: 1.75; }
+            .section-education-right-wrapper .row .col__title-year {
+              font-size: 8pt;
+              margin-top: 2px;
+              color: #6d6e6e; }
+            .section-education-right-wrapper .row .col__title-company {
+              font-weight: 700;
+              font-size: 13pt; }
+            .section-education-right-wrapper .row .col__title-position {
+              font-size: 8pt; }
+            .section-education-right-wrapper .row .col__title-location {
+              font-size: 8pt;
+              color: #6d6e6e; }
+          .section-education-right-wrapper .row .col__description {
+            width: 50%;
+            line-height: 1.75;
+            font-size: 10pt;
+            color: #979899; }
