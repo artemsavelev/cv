@@ -1,13 +1,86 @@
 @import 'normalize.scss';
-@mixin font-roboto {
+
+// === mixins ===
+
+@mixin font-main {
     font-family: 'Roboto', sans-serif;
 }
+@mixin test-border {
+    border: white 1px solid;
+}
+@mixin upper-text ($value) {
+    font-size: 13pt;
+    font-weight: 700;
+    margin-bottom: $value;
+    text-transform: uppercase;
+}
+@mixin wrapper-left-rule {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: $indent-70px;
+    text-align: right;
+}
+@mixin progress-rule ($value) {
+    height: 5px;
+    width: $value;
+    background-color: $color-yellow;
+}
+@mixin contact ($value) {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin-top: $value;
+    font-size: 10pt;
+    border-top: 1px solid $bg-color-set-4;
 
-body {
-    @include font-roboto();
-    //background-color: black;
+}
+@mixin contact-rule () {
+    width: 25%;
+    font-weight: 300;
+    p {
+        color: $color-font-secondary;
+    }
+}
+@mixin subtext-rule () {
+    font-weight: 400;
+    font-size: 10pt;
+    color: $color-font-secondary;
+}
+@mixin description {
+    width: 50%;
+    line-height: 1.75;
+    font-size: 10pt;
+    color: $color-font-secondary;
 }
 
+// === / mixins ===
+
+// === variables ===
+
+$indent-70px: 70px;
+$color-font-main: #a4a5a6;
+$color-font-secondary: #979899;
+$bg-color-set-1: #2b2c2c;
+$bg-color-set-2: #2d2e2e;
+$bg-color-set-3: #292a2a;
+$bg-color-set-4: #404242;
+$color-yellow: #e0a80d;
+
+// === / variables ===
+
+body {
+    @include font-main();
+    color: $color-font-main;
+    background-color: #000;
+}
+
+.section-inner {
+    width: 100%;
+    margin: 0 auto;
+}
 
 // === header ===
 
@@ -16,212 +89,171 @@ body {
     flex-direction: row;
 
     &-left {
-        background-color: rgb(43, 44, 44);
+        background-color: $bg-color-set-1;
         width: 36.5%;
         position: relative;
 
-        &__wrapper {
+        &-wrapper {
+            padding-top: 32vh;
             position: absolute;
-            right: 70px;
-            top: 70px;
-            margin-top: 27vh;
+            right: $indent-70px;
+            top: 0;
 
-
-            &-foto {
+            &__foto {
                 width: 251px;
                 height: 251px;
-                border-radius: 50%;                
 
                 .foto {
-                    border-radius: 150px;
+                    border-radius: 50%;
                 }
             }
         }
     }
 
     &-right {
-        background-color: rgb(45, 46, 46);
+        background-color: $bg-color-set-2;
         width: 63.5%;
         line-height: 0.91;
-        color: rgb(164, 165, 166);
- 
-        &__name {
-            margin-top: 37vh;
-            margin-left: 70px;
-            width: 60%; 
-            font-size: 61px;            
-            font-weight: 300;
-            text-transform: lowercase;
-        }
 
-        &__lastname {
-            margin-left: 70px;
-            width: 60%;
-            font-size: 67px;
-            font-style: normal;
-            color: rgb(224, 168, 13);
-            font-weight: 500;
-            text-transform: uppercase;
+        &-wrapper {
+            padding-top: 32vh;
+            padding-bottom: $indent-70px;
+            padding-left: $indent-70px;
 
-        }
-
-        &__position {
-            margin-left: 70px;
-            margin-top: 30px;
-            width: 60%;
-            font-weight: 300;
-            font-size: 21px;
-        }
-
-        &__contact {
-            margin-top: 33vh;
-            margin-left: 70px;
-            margin-bottom: 70px;
-            font-size: 10pt;
-            width: 60%;
-            display: flex;
-            flex-direction: row;
-            border-top: 1px solid rgb(64, 66, 66);
-            
-
-            .a{
-                color: rgb(151, 152, 153);
-                text-decoration: none;
-            }
-            
-            .a:hover{
-                color: rgb(224, 168, 13);
-                text-decoration: none;
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 251px;
             }
 
-            &-location {
-                width: 25%;
+            &__name {
+                font-size: 45pt;            
                 font-weight: 300;
-                p {
-                    color: rgb(151, 152, 153);
+                text-transform: lowercase;
+            }
+
+            &__lastname {
+                font-size: 50pt;
+                font-weight: 500;
+                color: $color-yellow;
+                text-transform: uppercase;
+            }
+
+            &__position {
+                margin-top: 30px;
+                font-size: 15pt;
+                font-weight: 300;
+            }
+
+            &__contact {
+
+                @include contact(30vh);         
+
+                .a {
+                    color: $color-font-secondary;
+                    text-decoration: none;
+                }
+                
+                .a:hover {
+                    color: $color-yellow;
+                    text-decoration: none;
+                }
+
+                &-location {
+                    @include contact-rule();
+                }
+
+                &-phone {
+                    @include contact-rule();
+                }
+
+                &-web {
+                    @include contact-rule();
+                }
+
+                &-email {
+                    @include contact-rule();
                 }
             }
-
-            &-phone {
-                width: 25%;
-                font-weight: 300;
-                p {
-                    color: rgb(151, 152, 153);
-                }
-            }
-
-            &-web {
-                width: 25%;
-                font-weight: 300;
-                p {
-                    color: rgb(151, 152, 153);
-                }
-            }
-
-            &-email {
-                width: 25%;
-                font-weight: 300;
-                p {
-                    color: rgb(151, 152, 153);
-                }
-            }
-
-        }
-        
-    }
-    
+        }        
+    }    
 }
 
 // === / header  ===
-
 
 // === intro ===
 .section-intro {
     display: flex;
     flex-direction: row;
-    color: rgb(164, 165, 166);
 
     &-left {    
         width: 36.5%;
         position: relative;
-        background-color: rgb(41, 42, 42);
+        background-color: $bg-color-set-3;
 
         &-wrapper {
-            position: absolute;
-            right: 70px;
-            top: 70px;
-            text-align: right;
-            line-height: 1.75;
+            @include wrapper-left-rule();
 
-            &__heading {
-                font-size: 13pt;
-                font-weight: 700;
+            &__text {
+                @include upper-text(10px);
             }
 
-            &__comment {
-                font-weight: 400;
-                font-size: 10pt;
+            &__subtext {
+                @include subtext-rule();
             }
         }
     }
 
     &-right {
         width: 63.5%;
-        background-color: rgb(43, 44, 44);
+        background-color: $bg-color-set-1;
 
         &-wrapper {
-            padding: 70px;
+            padding: $indent-70px;
             width: 60%;
             line-height: 1.75;
-            color: rgb(151, 152, 153);
-
+            color: $color-font-secondary;
         }
     }
 }
+
 // === / intro  ===
 
 // === expertise ===
 .section-expertise {
     display: flex;
     flex-direction: row;
-    color: rgb(164, 165, 166);
 
     &-left {
         width: 36.5%;
-        background-color: rgb(43, 44, 44);        
+        background-color: $bg-color-set-1;        
         position: relative;
 
         &-wrapper {
-            position: absolute;
-            right: 70px;
-            top: 70px;
-            text-align: right;
-            line-height: 1.75;
+            @include wrapper-left-rule();
             
-            &__heading {
-                font-size: 13pt;
-                font-weight: 700;
+            &__text {
+                @include upper-text(10px);
             }
 
-            &__comment {
-                font-weight: 400;
-                font-size: 10pt;
+            &__subtext {
+                @include subtext-rule();
             }
         }        
     }
 
     &-right {
         width: 63.5%;
-        background-color: rgb(45, 46, 46);
-
+        background-color: $bg-color-set-2;
 
         &-wrapper {
             width: 60%;
             font-size: 10pt;
-            padding-top: 70px;
+            padding-top: $indent-70px;
             padding-bottom: 30px;
-            padding-left: 70px;
-            padding-right: 70px;
+            padding-left: $indent-70px;
+            padding-right: $indent-70px;
 
             &__heading {
                 font-size: 13pt;
@@ -245,62 +277,57 @@ body {
 
                     &-num {
                         width: 30px;
-                        color: rgb(224, 168, 13);
-
+                        color: $color-yellow;
                     }
 
                     &-content {
                         width: 100%;
                         p {
-                            color: rgb(151, 152, 153);
-                        }
-                        
+                            color: $color-font-secondary;
+                        }                        
                     }
                 }
             }
         }
     }
 }
+
 // === / expertise  ===
 
 // === skills ===
 .section-skills {
     display: flex;
     flex-direction: row;
-    color: rgb(164, 165, 166);
 
     &-left {
         width: 36.5%;
-        background-color: rgb(41, 42, 42);        
+        background-color: $bg-color-set-3;        
         position: relative;
 
         &-wrapper {
-            position: absolute;
-            right: 70px;
-            top: 60px;
-            text-align: right;            
-            line-height: 1.75;
+            @include wrapper-left-rule();         
 
-            &__heading {
-                font-weight: 700;
-                font-size: 13pt;
+            &__text {
+                @include upper-text(10px);
             }
 
-            &__comment {
-                font-weight: 400;
-                font-size: 10pt;
+            &__subtext {
+                @include subtext-rule();
             }
         }
     }
 
     &-right {
         width: 63.5%;
-        background-color: rgb(43, 44, 44);
+        background-color: $bg-color-set-1;
 
         &-wrapper {
             width: 60%;
-            font-size: 10pt;            
-            padding: 70px 70px 20px 70px;
+            font-size: 10pt;
+            padding-top: $indent-70px;
+            padding-right: $indent-70px;
+            padding-bottom: 20px;
+            padding-left: $indent-70px;
 
             &__row {
                 height: auto;
@@ -313,22 +340,17 @@ body {
                     flex-direction: row;
                     font-weight: 400;
                     line-height: 0.6;
-
                      
                     &-num {
                         font-size: 13pt;
                         font-weight: 700;
                         margin-bottom: 15px;
                         width: 40px;
-                        color: rgb(224, 168, 13);
-
+                        color: $color-yellow;
                     }
 
                     &-content {
-                        font-size: 13pt;
-                        font-weight: 700;
-
-                   
+                        @include upper-text(0);
                     }
                 }
             }
@@ -345,42 +367,30 @@ body {
 
                     &-background {
                         height: 5px;
-                        background-color: rgb(64, 66, 66);
+                        background-color: $bg-color-set-4;
 
                         &-progress1 {
-                            height: 5px;
-                            width: 80%;
-                            background-color: rgb(224, 168, 13);
+                            @include progress-rule(80%);
                         }
 
                         &-progress2 {
-                            height: 5px;
-                            width: 75%;
-                            background-color: rgb(224, 168, 13);
+                            @include progress-rule(75%);
                         }
 
                         &-progress3 {
-                            height: 5px;
-                            width: 70%;
-                            background-color: rgb(224, 168, 13);
+                            @include progress-rule(70%);
                         }
 
                         &-progress4 {
-                            height: 5px;
-                            width: 65%;
-                            background-color: rgb(224, 168, 13);
+                            @include progress-rule(5%);
                         }
 
                         &-progress5 {
-                            height: 5px;
-                            width: 90%;
-                            background-color: rgb(224, 168, 13);
+                            @include progress-rule(2%);
                         }
 
                         &-progress6 {
-                            height: 5px;
-                            width: 50%;
-                            background-color: rgb(224, 168, 13);
+                            @include progress-rule(45%);
                         }
                     }
                 }
@@ -388,43 +398,35 @@ body {
         }
     }
 }
+
 // === / skills  ===
 
 // ===  experience  ===
 .section-experience {
     display: flex;
     flex-direction: row;
-    color: rgb(164, 165, 166);
 
     &-left {
         width: 36.5%;
-        background-color: rgb(43, 44, 44);
+        background-color: $bg-color-set-1;
         position: relative;
 
         &-wrapper {
-            position: absolute;
-            right: 70px;
-            top: 70px;
-            text-align: right;       
-            line-height: 1.75;
+            @include wrapper-left-rule();   
 
-            &__heading {
-                font-weight: 700;
-                font-size: 13pt;
+            &__text {
+                @include upper-text(10px);
             }
 
-            &__comment {
-                font-weight: 400;
-                font-size: 10pt;
+            &__subtext {
+                @include subtext-rule();
             }
         }
-
     }
-
 
     &-right {
         width: 63.5%;
-        background-color: rgb(45, 46, 46);
+        background-color: $bg-color-set-2;
 
         &-wrapper {
             width: 60%;
@@ -446,7 +448,7 @@ body {
                             margin-bottom: 6px;                         
                             height: 10px;
                             width: 10px;
-                            background-color: rgb(224, 168, 13);
+                            background-color: $color-yellow;
                             border-radius: 50%;
                         }
                     }
@@ -459,7 +461,7 @@ body {
                     }
 
                     &__timeline-empty {
-                        height: 70px;
+                        height: $indent-70px;
                         margin-left: 4px;
                         border: 1px solid #404242;
                     }
@@ -479,6 +481,7 @@ body {
                         &-company {
                             font-weight: 700;
                             font-size: 13pt;
+                            @include upper-text(2px);
                         }
 
                         &-position {
@@ -492,10 +495,7 @@ body {
                     }
 
                     &__description {
-                        width: 50%;
-                        line-height: 1.75;
-                        font-size: 10pt;
-                        color: rgb(151, 152, 153);
+                        @include description();                        
                     }
                 }
             }
@@ -509,41 +509,36 @@ body {
 .section-education {
     display: flex;
     flex-direction: row;
-    color: rgb(164, 165, 166);
 
     &-left {
         width: 36.5%;
-        background-color: rgb(41, 42, 42);
+        background-color: $bg-color-set-3;
         position: relative;
 
         &-wrapper {
-            position: absolute;
-            right: 70px;
-            top: 70px;
-            text-align: right;       
-            line-height: 1.75;
+            @include wrapper-left-rule();
 
-            &__heading {
-                font-weight: 700;
-                font-size: 13pt;
+            &__text {
+                @include upper-text(10px);
             }
 
-            &__comment {
-                font-weight: 400;
-                font-size: 10pt;
+            &__subtext {
+                @include subtext-rule();
             }
         }
-
     }
 
 
     &-right {
         width: 63.5%;
-        background-color: rgb(43, 44, 44);
+        background-color: $bg-color-set-1;
 
         &-wrapper {
             width: 60%;
-            padding: 0 70px 0 70px;
+            padding-top: 0;
+            padding-right: $indent-70px;
+            padding-bottom: 0;
+            padding-left: $indent-70px;
     
             .row {
                 display: flex;
@@ -561,7 +556,7 @@ body {
                             margin-bottom: 6px;                         
                             height: 10px;
                             width: 10px;
-                            background-color: rgb(224, 168, 13);
+                            background-color: $color-yellow;
                             border-radius: 50%;
                         }
                     }
@@ -570,20 +565,20 @@ body {
                         height: 100%;
                         width: 0;
                         margin-left: 4px;
-                        border: 1px solid #404242;
+                        border: 1px solid $bg-color-set-4;
                     }
 
                     &__timeline-empty {
-                        height: 70px;
+                        height: $indent-70px;
                         margin-left: 4px;
-                        border: 1px solid #404242;
+                        border: 1px solid $bg-color-set-4;
                     }
 
                     &__timeline-empty-end {
-                        height: 70px;
+                        height: $indent-70px;
                         margin-left: -5px;
                         width: 20px;
-                        border-top: 2px solid #404242;                        
+                        border-top: 2px solid $bg-color-set-4;                        
                     }
 
                     &__title {
@@ -601,6 +596,7 @@ body {
                         &-company {
                             font-weight: 700;
                             font-size: 13pt;
+                            @include upper-text(2px);
                         }
 
                         &-position {
@@ -614,10 +610,7 @@ body {
                     }
 
                     &__description {
-                        width: 50%;
-                        line-height: 1.75;
-                        font-size: 10pt;
-                        color: rgb(151, 152, 153);
+                        @include description();  
                     }
                 }
             }
@@ -626,7 +619,106 @@ body {
 }
 // === / education  ===
 
+// === footer ===
 
+.section-footer {
+    display: flex;
+    flex-direction: row;
 
+    &-left {
+        background-color: $bg-color-set-1;
+        width: 36.5%;
+        position: relative;
+
+        &-wrapper {
+            @include wrapper-left-rule();
+
+            &__text {
+                @include upper-text(10px);
+            }
+
+            &__subtext {
+                @include subtext-rule();
+            }
+        }
+    }
+
+    &-right {
+        background-color: $bg-color-set-2;
+        width: 63.5%;
+        line-height: 0.91;
+ 
+        &__name {
+            margin-top: 7vh;
+            margin-left: 70px;
+            width: 60%; 
+            font-size: 40pt;            
+            font-weight: 300;
+            text-transform: lowercase;
+        }
+
+        &__lastname {
+            margin-left: $indent-70px;
+            margin-bottom: $indent-70px;
+            width: 60%;
+            font-size: 45pt;
+            color: $color-yellow;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        &__position {
+            margin-left: $indent-70px;
+            margin-top: 30px;
+            width: 60%;
+            font-weight: 300;
+            font-size: 21px;
+        }
+
+        &__contact {
+            @include contact($indent-70px);           
+
+            .a{
+                color: $color-font-secondary;
+                text-decoration: none;
+            }
+            
+            .a:hover{
+                color: $color-yellow;
+                text-decoration: none;
+            }
+
+            &-location {
+                @include contact-rule();
+                h4 {
+                    margin-top: 0;
+                }
+            }
+
+            &-phone {
+                @include contact-rule();
+                h4 {
+                    margin-top: 0;
+                }
+            }
+
+            &-web {
+                @include contact-rule();
+                h4 {
+                    margin-top: 0;
+                }
+            }
+
+            &-email {
+                @include contact-rule();
+                h4 {
+                    margin-top: 0;
+                }
+            }
+        }        
+    }    
+}
+
+// === / footer  ===
 
   
