@@ -1,53 +1,25 @@
 @import 'normalize.scss';
 
 // === mixins ===
-
 @mixin font-main {
     font-family: 'Roboto', sans-serif;
 }
-@mixin test-border {
-    border: white 1px solid;
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
 }
-@mixin upper-text ($value) {
-    font-size: 13pt;
-    font-weight: 700;
-    margin-bottom: $value;
-    text-transform: uppercase;
-}
-@mixin wrapper-left-rule {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding: $indent-70px;
-    text-align: right;
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
 }
 @mixin progress-rule ($value) {
     height: 5px;
     width: $value;
     background-color: $color-yellow;
 }
-@mixin contact ($value) {
-    display: flex;
-    flex-direction: row;
-    width: 60%;
-    margin-top: $value;
-    font-size: 10pt;
-    border-top: 1px solid $bg-color-set-4;
-
-}
 @mixin contact-rule () {
     width: 25%;
     font-weight: 300;
-    p {
-        color: $color-font-secondary;
-    }
-}
-@mixin subtext-rule () {
-    font-weight: 400;
-    font-size: 10pt;
-    color: $color-font-secondary;
 }
 @mixin description {
     width: 50%;
@@ -55,12 +27,235 @@
     font-size: 10pt;
     color: $color-font-secondary;
 }
+@mixin upper-text($value) {
+    font-size: 13pt;
+    font-weight: 700;
+    margin-bottom: $value;
+    text-transform: uppercase;
+}
+@mixin margin($top, $right, $bottom, $left) {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+@mixin padding($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+@mixin left-container($bg-color) {
+    &-left {    
+        width: 36.5%;
+        position: relative;
+        background-color: $bg-color;
 
+        &-wrapper {
+            @include padding(70px, 70px, 70px, 70px);
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: right;
+            //border: #fff 1px solid;
+
+            &__text {
+                @include upper-text(10px);
+                //border: #ff0000 1px solid;
+            }
+
+            &__subtext {
+                font-weight: 400;
+                font-size: 10pt;
+                color: $color-font-secondary;
+                //border: #ff0000 1px solid;
+            }
+        }
+    }    
+}
+@mixin right-container($top, $height, $font-size-1, $font-size-2, $margin-top, $block) {
+    &-right {
+        background-color: $bg-color-set-2;
+        width: 63.5%;
+        
+
+        &-wrapper {
+            @include padding($top, 0, 70px, 70px);
+            width: 65%;
+            //border: #fff 1px solid; 
+
+            .container {
+                @include flex-column();
+                justify-content: center;
+                height: $height;
+                line-height: 0.91;
+                //border: #ff0000 1px solid; 
+            }
+
+            &__name {
+                font-size: $font-size-1;            
+                font-weight: 300;
+                text-transform: lowercase;
+            }
+
+            &__lastname {
+                font-size: $font-size-2;
+                font-weight: 500;
+                color: $color-yellow;
+                text-transform: uppercase;
+            }
+
+            &__position {
+                @include margin(30px, 0, 0, 0);
+                font-size: 15pt;
+                font-weight: 300;
+            }
+
+            &__contact {
+                @include flex-row();
+                @include margin($margin-top, 0, 0, 0);
+                font-size: 10pt;
+                //border: #ff0000 1px solid;
+
+                @if $block == 'header' {
+                    border-top: 1px solid $bg-color-set-4;
+                } @else {
+                    @include margin(0, 0, 7vh, 0);
+                    border-bottom: 1px solid $bg-color-set-4;
+                }                
+                
+                .text {
+                    @if $block == 'header' {
+                        @include margin(30px, 0, 15px, 0);
+                    }
+                    font-weight: 700;
+                    //border: #fffb00 1px solid;
+                }
+
+                .subtext {
+                    @if $block == 'footer' {
+                        @include margin(15px, 0, 30px, 0);
+                    }
+                    font-weight: 300;
+                    //border: #00c3ff 1px solid;
+                }
+
+                .a {
+                    color: $color-font-secondary;
+                    text-decoration: none;     
+                
+                    &:hover {
+                        color: $color-yellow;
+                    }
+                }
+
+                &-location, &-phone, &-web, &-email {
+                    @include contact-rule();
+                }
+            }
+        }
+    }    
+}
+@mixin timeline($bg-color, $top) {
+    &-right {
+        width: 63.5%;
+        background-color: $bg-color;
+
+        &-wrapper {
+            @include padding($top, 0, 0, 70px);
+            width: 65%;
+            //border: #fff 1px solid; 
+    
+            .row {
+                @include flex-row();
+                //border: #ff0000 1px solid; 
+    
+                .col {
+                    @include flex-column();
+                    //border: #fbff00 1px solid; 
+
+                    &-wrapper{
+                        //border: #fbff00 1px solid; 
+ 
+                        &__point {
+                            margin-top: 6px;
+                            margin-bottom: 6px;                         
+                            height: 10px;
+                            width: 10px;
+                            border-radius: 50%;
+                            background-color: $color-yellow;
+                        }
+                    }
+    
+                    &__timeline {
+                        height: 100%;
+                        width: 0;
+                        margin-left: 4px;
+                        border-left: 2px solid $bg-color-set-4;
+                        //border: #2bff00 1px solid; 
+                    }
+
+                    &__timeline-empty {
+                        height: 70px;
+
+                        margin-left: 4px;
+                        border-left: 2px solid $bg-color-set-4;
+                        //border: #2bff00 1px solid; 
+                    }
+
+                    &__timeline-empty-end {
+                        height: 70px;
+                        margin-left: -5px;
+                        width: 20px;
+                        border-top: 2px solid $bg-color-set-4;                        
+                    }
+
+                    &__title {
+                        flex-grow: 1;
+                        width: 50%;
+                        margin-left: 18px;
+                        margin-right: -60px;
+                        line-height: 1.75;
+                        //border: #00d9ff 1px solid; 
+
+                        &-year {
+                            font-size: 8pt;
+                            margin-top: 3px;
+                            color: #6d6e6e;
+                            //border: #f700ff 1px solid; 
+                        }
+                        
+                        &-company {
+                            @include upper-text(0);
+                            //border: #88ff00 1px solid; 
+                        }
+
+                        &-position {
+                            font-size: 8pt;
+                            //border: #ffbb00 1px solid; 
+                        }
+
+                        &-location {
+                            font-size: 8pt;
+                            color: #6d6e6e;
+                            //border: #ff0000 1px solid; 
+                        }
+                    }
+
+                    &__description {
+                        @include description(); 
+                        flex-grow: 2;
+                        //border: #ff0000 1px solid; 
+                    }
+                }
+            }
+        }     
+    }    
+}
 // === / mixins ===
-
 // === variables ===
-
-$indent-70px: 70px;
 $color-font-main: #a4a5a6;
 $color-font-secondary: #979899;
 $bg-color-set-1: #2b2c2c;
@@ -68,9 +263,8 @@ $bg-color-set-2: #2d2e2e;
 $bg-color-set-3: #292a2a;
 $bg-color-set-4: #404242;
 $color-yellow: #e0a80d;
-
 // === / variables ===
-
+// === common ===
 body {
     @include font-main();
     color: $color-font-main;
@@ -81,12 +275,10 @@ body {
     width: 100%;
     margin: 0 auto;
 }
-
+// === / common ===
 // === header ===
-
 .section-header {
-    display: flex;
-    flex-direction: row;
+    @include flex-row();
 
     &-left {
         background-color: $bg-color-set-1;
@@ -94,196 +286,101 @@ body {
         position: relative;
 
         &-wrapper {
+            @include padding(32vh, 0, 0, 0);
             padding-top: 32vh;
             position: absolute;
-            right: $indent-70px;
-            top: 0;
+            right: 70px;
+            //border: #fff 1px solid;
 
             &__foto {
                 width: 251px;
                 height: 251px;
+                //border: #ff0000 1px solid;
 
                 .foto {
                     border-radius: 50%;
                 }
             }
         }
-    }
+    }   
 
-    &-right {
-        background-color: $bg-color-set-2;
-        width: 63.5%;
-        line-height: 0.91;
-
-        &-wrapper {
-            padding-top: 32vh;
-            padding-bottom: $indent-70px;
-            padding-left: $indent-70px;
-
-            .container {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                height: 251px;
-            }
-
-            &__name {
-                font-size: 45pt;            
-                font-weight: 300;
-                text-transform: lowercase;
-            }
-
-            &__lastname {
-                font-size: 50pt;
-                font-weight: 500;
-                color: $color-yellow;
-                text-transform: uppercase;
-            }
-
-            &__position {
-                margin-top: 30px;
-                font-size: 15pt;
-                font-weight: 300;
-            }
-
-            &__contact {
-
-                @include contact(30vh);         
-
-                .a {
-                    color: $color-font-secondary;
-                    text-decoration: none;
-                }
-                
-                .a:hover {
-                    color: $color-yellow;
-                    text-decoration: none;
-                }
-
-                &-location {
-                    @include contact-rule();
-                }
-
-                &-phone {
-                    @include contact-rule();
-                }
-
-                &-web {
-                    @include contact-rule();
-                }
-
-                &-email {
-                    @include contact-rule();
-                }
-            }
-        }        
-    }    
+    @include right-container(32vh, 251px, 45pt, 50pt, 26vh, 'header');    
 }
-
 // === / header  ===
-
 // === intro ===
 .section-intro {
-    display: flex;
-    flex-direction: row;
-
-    &-left {    
-        width: 36.5%;
-        position: relative;
-        background-color: $bg-color-set-3;
-
-        &-wrapper {
-            @include wrapper-left-rule();
-
-            &__text {
-                @include upper-text(10px);
-            }
-
-            &__subtext {
-                @include subtext-rule();
-            }
-        }
-    }
+    @include flex-row();
+    @include left-container($bg-color-set-3); 
 
     &-right {
         width: 63.5%;
         background-color: $bg-color-set-1;
 
         &-wrapper {
-            padding: $indent-70px;
-            width: 60%;
-            line-height: 1.75;
-            color: $color-font-secondary;
+            @include padding(70px, 0, 70px, 70px);
+            width: 65%;
+            //border: #fff 1px solid;
+
+            &__text{
+                line-height: 1.75;
+                color: $color-font-secondary;
+                //border: #ff0000 1px solid;
+            }
         }
     }
 }
 
 // === / intro  ===
-
 // === expertise ===
 .section-expertise {
-    display: flex;
-    flex-direction: row;
-
-    &-left {
-        width: 36.5%;
-        background-color: $bg-color-set-1;        
-        position: relative;
-
-        &-wrapper {
-            @include wrapper-left-rule();
-            
-            &__text {
-                @include upper-text(10px);
-            }
-
-            &__subtext {
-                @include subtext-rule();
-            }
-        }        
-    }
+    @include flex-row();
+    @include left-container($bg-color-set-1); 
 
     &-right {
         width: 63.5%;
         background-color: $bg-color-set-2;
 
         &-wrapper {
-            width: 60%;
-            font-size: 10pt;
-            padding-top: $indent-70px;
-            padding-bottom: 30px;
-            padding-left: $indent-70px;
-            padding-right: $indent-70px;
+            @include padding(70px, 0, 20px, 70px);
+            width: 65%;
+            //border: #fff 1px solid;
 
-            &__heading {
-                font-size: 13pt;
-                font-weight: 700;
-            }
+            .row {
+                @include flex-row();
+                @include margin(0, 0, 50px, 0);
+                //border: #ff0000 1px solid;
 
-            &__row {
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                margin-bottom: 40px;
+                .col-1 {
+                    @include margin(0, 50px, 0, 0);                    
+                }
 
-                &-col {
+                .col-1, .col-2 {
+                    @include flex-row();
                     width: 100%;
-                    display: flex;
-                    flex-direction: row;
                     font-weight: 400;
-                    line-height: 1.75;
-                    margin-right: 50px;
-
+                    //border: #ffee00 1px solid;
 
                     &-num {
-                        width: 30px;
+                        @include upper-text(0);
+                        width: 40px;
                         color: $color-yellow;
+                        //border: #00ff0d 1px solid;
                     }
 
                     &-content {
                         width: 100%;
-                        p {
+                        //border: #00eeff 1px solid;
+
+                        &-header {
+                            @include upper-text(10px);
+                            //border: #ffa600 1px solid;
+                        }
+                    
+                        &-text {
+                            font-size: 10pt;
+                            line-height: 1.75;
                             color: $color-font-secondary;
+                            //border: #f700ff 1px solid;
                         }                        
                     }
                 }
@@ -293,432 +390,105 @@ body {
 }
 
 // === / expertise  ===
-
 // === skills ===
 .section-skills {
-    display: flex;
-    flex-direction: row;
-
-    &-left {
-        width: 36.5%;
-        background-color: $bg-color-set-3;        
-        position: relative;
-
-        &-wrapper {
-            @include wrapper-left-rule();         
-
-            &__text {
-                @include upper-text(10px);
-            }
-
-            &__subtext {
-                @include subtext-rule();
-            }
-        }
-    }
+    @include flex-row();
+    @include left-container($bg-color-set-3);
 
     &-right {
         width: 63.5%;
         background-color: $bg-color-set-1;
 
         &-wrapper {
-            width: 60%;
-            font-size: 10pt;
-            padding-top: $indent-70px;
-            padding-right: $indent-70px;
-            padding-bottom: 20px;
-            padding-left: $indent-70px;
+            @include padding(70px, 0, 20px, 70px);
+            width: 65%;
+            //border: #fff 1px solid;
+           
+            .row {
+                @include flex-row();
+                @include margin(0, 0, 50px, 0);
+                //border: #ff0000 1px solid;
 
-            &__row {
-                height: auto;
-                display: flex;
-                flex-direction: row;
+                .col-1 {
+                    @include margin(0, 50px, 0, 0);
+                }
                 
-                &-col {
-                    width: 50%;
-                    display: flex;
-                    flex-direction: row;
+                .col-1, .col-2 {
+                    @include flex-column();
+                    width: 100%;
                     font-weight: 400;
-                    line-height: 0.6;
-                     
+                    //border: #ffee00 1px solid;
+
+
+                    &-wrapper {
+                        @include flex-row();
+                        @include margin(0, 0, 10px, 0);
+                    }
+                    
                     &-num {
-                        font-size: 13pt;
-                        font-weight: 700;
-                        margin-bottom: 15px;
-                        width: 40px;
+                        @include margin(0, 10px, 0, 0);
                         color: $color-yellow;
+                        //border: #00ff0d 1px solid;
                     }
 
                     &-content {
                         @include upper-text(0);
+                        //border: #00eeff 1px solid;
                     }
-                }
-            }
 
-            .wrapper-progressbar {
-                margin-bottom: 50px;
-                display: flex;
-                flex-direction: row;
-
-                &-col {
-                    width: 50%;
-                    margin-right: 50px;
-
-
-                    &-background {
-                        height: 5px;
+                    &-progress-bar {
                         background-color: $bg-color-set-4;
+                        //border: #f700ff 1px solid;
 
-                        &-progress1 {
+                        &-progress-1 {
                             @include progress-rule(80%);
                         }
 
-                        &-progress2 {
+                        &-progress-2 {
                             @include progress-rule(75%);
                         }
 
-                        &-progress3 {
-                            @include progress-rule(70%);
+                        &-progress-3 {
+                            @include progress-rule(65%);
                         }
 
-                        &-progress4 {
+                        &-progress-4 {
                             @include progress-rule(5%);
                         }
 
-                        &-progress5 {
-                            @include progress-rule(2%);
+                        &-progress-5 {
+                            @include progress-rule(8%);
                         }
 
-                        &-progress6 {
-                            @include progress-rule(45%);
+                        &-progress-6 {
+                            @include progress-rule(50%);
                         }
+
                     }
                 }
             }
         }
     }
 }
-
 // === / skills  ===
-
 // ===  experience  ===
 .section-experience {
-    display: flex;
-    flex-direction: row;
-
-    &-left {
-        width: 36.5%;
-        background-color: $bg-color-set-1;
-        position: relative;
-
-        &-wrapper {
-            @include wrapper-left-rule();   
-
-            &__text {
-                @include upper-text(10px);
-            }
-
-            &__subtext {
-                @include subtext-rule();
-            }
-        }
-    }
-
-    &-right {
-        width: 63.5%;
-        background-color: $bg-color-set-2;
-
-        &-wrapper {
-            width: 60%;
-            padding: 70px 70px 0 70px;
-    
-            .row {
-                display: flex;
-                flex-direction: row;
-    
-                .col {
-                    display: flex;
-                    flex-direction: column;
-
-                    &-wrapper{
-                        width: 10px;
- 
-                        &__point {
-                            margin-top: 6px;
-                            margin-bottom: 6px;                         
-                            height: 10px;
-                            width: 10px;
-                            background-color: $color-yellow;
-                            border-radius: 50%;
-                        }
-                    }
-    
-                    &__timeline {
-                        height: 100%;
-                        width: 0;
-                        margin-left: 4px;
-                        border: 1px solid #404242;
-                    }
-
-                    &__timeline-empty {
-                        height: $indent-70px;
-                        margin-left: 4px;
-                        border: 1px solid #404242;
-                    }
-
-                    &__title {
-                        width: 47%;
-                        margin-left: 18px;
-                        line-height: 1.75;
-
-
-                        &-year {
-                            font-size: 8pt;
-                            margin-top: 3px;
-                            color: #6d6e6e;
-                        }
-                        
-                        &-company {
-                            font-weight: 700;
-                            font-size: 13pt;
-                            @include upper-text(2px);
-                        }
-
-                        &-position {
-                            font-size: 8pt;
-                        }
-
-                        &-location {
-                            font-size: 8pt;
-                            color: #6d6e6e;
-                        }
-                    }
-
-                    &__description {
-                        @include description();                        
-                    }
-                }
-            }
-        }     
-    }
+    @include flex-row();    
+    @include left-container($bg-color-set-1); 
+    @include timeline($bg-color-set-2, 70px);
 }
 // === / experience  ===
-
-
 // ===  education  ===
 .section-education {
-    display: flex;
-    flex-direction: row;
-
-    &-left {
-        width: 36.5%;
-        background-color: $bg-color-set-3;
-        position: relative;
-
-        &-wrapper {
-            @include wrapper-left-rule();
-
-            &__text {
-                @include upper-text(10px);
-            }
-
-            &__subtext {
-                @include subtext-rule();
-            }
-        }
-    }
-
-
-    &-right {
-        width: 63.5%;
-        background-color: $bg-color-set-1;
-
-        &-wrapper {
-            width: 60%;
-            padding-top: 0;
-            padding-right: $indent-70px;
-            padding-bottom: 0;
-            padding-left: $indent-70px;
-    
-            .row {
-                display: flex;
-                flex-direction: row;
-    
-                .col {
-                    display: flex;
-                    flex-direction: column;
-
-                    &-wrapper{
-                        width: 10px;
- 
-                        &__point {
-                            margin-top: 6px;
-                            margin-bottom: 6px;                         
-                            height: 10px;
-                            width: 10px;
-                            background-color: $color-yellow;
-                            border-radius: 50%;
-                        }
-                    }
-    
-                    &__timeline {
-                        height: 100%;
-                        width: 0;
-                        margin-left: 4px;
-                        border: 1px solid $bg-color-set-4;
-                    }
-
-                    &__timeline-empty {
-                        height: $indent-70px;
-                        margin-left: 4px;
-                        border: 1px solid $bg-color-set-4;
-                    }
-
-                    &__timeline-empty-end {
-                        height: $indent-70px;
-                        margin-left: -5px;
-                        width: 20px;
-                        border-top: 2px solid $bg-color-set-4;                        
-                    }
-
-                    &__title {
-                        width: 47%;
-                        margin-left: 18px;
-                        line-height: 1.75;
-
-
-                        &-year {
-                            font-size: 8pt;
-                            margin-top: 3px;
-                            color: #6d6e6e;
-                        }
-                        
-                        &-company {
-                            font-weight: 700;
-                            font-size: 13pt;
-                            @include upper-text(2px);
-                        }
-
-                        &-position {
-                            font-size: 8pt;
-                        }
-
-                        &-location {
-                            font-size: 8pt;
-                            color: #6d6e6e;
-                        }
-                    }
-
-                    &__description {
-                        @include description();  
-                    }
-                }
-            }
-        }     
-    }
+    @include flex-row();
+    @include left-container($bg-color-set-3);
+    @include timeline($bg-color-set-1, 0);
 }
 // === / education  ===
-
 // === footer ===
-
 .section-footer {
-    display: flex;
-    flex-direction: row;
-
-    &-left {
-        background-color: $bg-color-set-1;
-        width: 36.5%;
-        position: relative;
-
-        &-wrapper {
-            @include wrapper-left-rule();
-
-            &__text {
-                @include upper-text(10px);
-            }
-
-            &__subtext {
-                @include subtext-rule();
-            }
-        }
-    }
-
-    &-right {
-        background-color: $bg-color-set-2;
-        width: 63.5%;
-        line-height: 0.91;
- 
-        &__name {
-            margin-top: 7vh;
-            margin-left: 70px;
-            width: 60%; 
-            font-size: 40pt;            
-            font-weight: 300;
-            text-transform: lowercase;
-        }
-
-        &__lastname {
-            margin-left: $indent-70px;
-            margin-bottom: $indent-70px;
-            width: 60%;
-            font-size: 45pt;
-            color: $color-yellow;
-            font-weight: 500;
-            text-transform: uppercase;
-        }
-
-        &__position {
-            margin-left: $indent-70px;
-            margin-top: 30px;
-            width: 60%;
-            font-weight: 300;
-            font-size: 21px;
-        }
-
-        &__contact {
-            @include contact($indent-70px);           
-
-            .a{
-                color: $color-font-secondary;
-                text-decoration: none;
-            }
-            
-            .a:hover{
-                color: $color-yellow;
-                text-decoration: none;
-            }
-
-            &-location {
-                @include contact-rule();
-                h4 {
-                    margin-top: 0;
-                }
-            }
-
-            &-phone {
-                @include contact-rule();
-                h4 {
-                    margin-top: 0;
-                }
-            }
-
-            &-web {
-                @include contact-rule();
-                h4 {
-                    margin-top: 0;
-                }
-            }
-
-            &-email {
-                @include contact-rule();
-                h4 {
-                    margin-top: 0;
-                }
-            }
-        }        
-    }    
+    @include flex-row();
+    @include left-container($bg-color-set-1); 
+    @include right-container(70px, auto, 40pt, 45pt, 0, 'footer'); 
 }
-
 // === / footer  ===
-
-  
